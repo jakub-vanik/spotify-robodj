@@ -1,0 +1,166 @@
+body {
+  background-color: #181818;
+  color: #ffffff;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+.main {
+  margin: 0 auto 0 auto;
+  width: 800px;
+}
+
+.status_current {
+  margin: 20px 0 20px 0;
+  overflow: hidden;
+}
+
+.status_current_image {
+  float: left;
+}
+
+.status_current_label {
+  font-size: 20px;
+  margin-left: 320px;
+}
+
+.status_current_name {
+  font-size: 50px;
+  margin-left: 320px;
+}
+
+.status_current_album {
+  font-size: 30px;
+  margin-left: 320px;
+}
+
+.status_current_author {
+  font-size: 30px;
+  margin-left: 320px;
+}
+
+.status_queue {
+  font-size: 20px;
+  margin: 20px 0 20px 0;
+  overflow: hidden;
+}
+
+.search {
+}
+
+.search_label {
+  font-size: 20px;
+  margin: 20px 0 5px 0;
+}
+
+.search_input {
+  background-color: #282828;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 20px;
+  margin: 5px 0 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.search_result {
+  background-color: #282828;
+  cursor: pointer;
+  line-height: 1.5;
+  margin: 5px 0 5px 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.search_result:hover {
+  background-color: #535353;
+}
+
+.search_result_label {
+  font-weight: bold;
+  height: 20px;
+  margin: 15px 0 15px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.search_result_button {
+  background-color: #1db954;
+  border-radius: 20px;
+  float: left;
+  height: 20px;
+  margin: 10px 0 10px 10px;
+  text-align: center;
+  padding: 5px;
+  width: 60px;
+}
+
+.search_result_button:hover {
+  background-color: #1ed760;
+}
+
+.search_result_name {
+  font-weight: bold;
+  float: left;
+  height: 20px;
+  margin: 15px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.search_result_author {
+  float: right;
+  height: 20px;
+  margin: 15px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.setup_label {
+  margin: 20px 0 10px 0;
+  overflow: hidden;
+}
+
+.setup_section {
+  overflow: hidden;
+}
+
+.setup_form {
+  float: left;
+}
+
+.setup_select {
+  background-color: #282828;
+  border: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  color: #ffffff;
+  height: 30px;
+  margin: 0 10px 0 0;
+  width: 200px;
+}
+
+.setup_input {
+  background-color: #282828;
+  border: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  color: #ffffff;
+  height: 30px;
+  margin: 0 10px 0 0;
+  width: 50px;
+}
+
+.setup_button {
+  background-color: #1db954;
+  border: 0;
+  border-radius: 30px;
+  color: inherit;
+  font-weight: bold;
+  height: 30px;
+  margin: 0 10px 0 0;
+  text-align: center;
+  padding: 5px;
+  width: 100px;
+}

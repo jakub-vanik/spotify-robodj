@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>Robo DJ</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename = "style.css") }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for("static", filename = "favicon-32x32.png") }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for("static", filename = "favicon-16x16.png") }}" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="setup_label">Autentizace Spotify</div>
+      <div class="setup_section">
+        <div class="setup_form">
+          <form action="{{ url_for("setup.auth") }}" method="get">
+            <input class="setup_button" type="submit" value="Přihlásit" />
+          </form>
+        </div>
+      </div>
+      <div class="setup_label">Výběr přehrávače</div>
+      <div class="setup_section">
+        <div class="setup_form">
+          <form action="{{ url_for("setup.set_device") }}" method="post">
+            <select class="setup_select" name="device_id">
+              {% for device in devices %}
+                <option value="{{ device.id }}">{{ device.name }}</option>
+              {% endfor %}
+            </select>
+            <input class="setup_button" type="submit" value="Vybrat" />
+          </form>
+        </div>
+      </div>
+      <div class="setup_label">Výběr playlistu</div>
+      <div class="setup_section">
+        <div class="setup_form">
+          <form action="{{ url_for("setup.set_playlist") }}" method="post">
+            <select class="setup_select" name="playlist_id">
+              {% for playlist in playlists %}
+                <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+              {% endfor %}
+            </select>
+            <input class="setup_input" type="number" name="skip_tracks" value="0" />
+            <input class="setup_button" type="submit" value="Vybrat" />
+          </form>
+        </div>
+      </div>
+      <div class="setup_label">Extra</div>
+      <div class="setup_section">
+        <div class="setup_form">
+          <form action="{{ url_for("setup.restart") }}" method="post">
+            <input class="setup_button" type="submit" value="Restart" />
+          </form>
+        </div>
+        <div class="setup_form">
+          <form action="{{ url_for("setup.kill") }}" method="post">
+            <input class="setup_button" type="submit" value="Kill DJ" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

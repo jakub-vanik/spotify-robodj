@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>Robo DJ</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename = "style.css") }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for("static", filename = "favicon-32x32.png") }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for("static", filename = "favicon-16x16.png") }}" />
+  </head>
+  <body>
+    <div class="main">
+      <div id="status"></div>
+      <div class="search">
+        <div class="search_label">Vyhledej písničku a nech si jí zahrát</div>
+        <input class="search_input" id="query" class="field" type="text" />
+      </div>
+      <div id="search"></div>
+    </div>
+    <script>
+      function refresh_status() {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('status').innerHTML = this.responseText;
+            setTimeout(refresh_status, 5000);
+          }
+        };
+        http.open('GET', '{{ url_for("main.status") }}?t=' + Date.now());
+        http.send();
+      }
+      refresh_status();
+      function load_search(query, page, callback) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('search').innerHTML = this.responseText;
+            callback();
+          }
+        };   
+        http.open('GET', '{{ url_for("main.search") }}?query=' + encodeURIComponent(query) + '&page=' + page);
+        http.send();
+      }
+      last_query = '';
+      function refresh_search() {
+        query = document.getElementById('query').value
+        if (query != last_query) {
+          last_query = query
+          load_search(query, 0, function() {
+            setTimeout(refresh_search, 1000);
+          });
+        } else {
+          setTimeout(refresh_search, 1000);
+        }
+      }
+      refresh_search();
+      function request(track_id) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+          }
+        };
+        http.open('GET', '{{ url_for("main.request") }}?track_id=' + encodeURIComponent(track_id));
+        http.send();
+      }
+    </script>
+  </body>
+</html>
