@@ -1,7 +1,7 @@
 FROM debian:buster
 WORKDIR /root
 RUN apt-get update && apt-get -y install python3 python3-pip
-RUN pip3 --no-cache-dir install Flask rpyc aiohttp
+RUN pip3 --no-cache-dir install Flask Flask-Babel rpyc aiohttp
 RUN adduser --disabled-password --gecos "User" user
 RUN mkdir /mnt/data && chmod 0777 /mnt/data
 ADD --chown=user:user robodj /home/user/robodj

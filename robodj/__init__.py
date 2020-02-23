@@ -3,6 +3,7 @@
 import flask
 import os
 
+from . import babel
 from . import main
 from . import setup
 
@@ -19,6 +20,7 @@ class ReverseProxied:
 
 def create_app():
   app = flask.Flask(__name__)
+  babel.babel.init_app(app)
   app.register_blueprint(main.bp)
   app.register_blueprint(setup.bp)
   app.wsgi_app = ReverseProxied(app.wsgi_app, os.environ["SCRIPT_NAME"])

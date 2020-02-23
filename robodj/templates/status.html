@@ -4,15 +4,15 @@
       <div class="status_current_image">
         <img alt="{{ current_track.album.name }}" src="{{ current_track.album.images[1].url }}" style="width: {{ current_track.album.images[1].width }}px; height: {{ current_track.album.images[1].height }}px;" />
       </div>
-      <div class="status_current_label">Právě hraje</div>
+      <div class="status_current_label">{{ _("Playing") }}</div>
       <div class="status_current_name">{{ current_track.name }}</div>
-      <div class="status_current_label">z alba</div>
+      <div class="status_current_label">{{ _("from the album") }}</div>
       <div class="status_current_album">{{ current_track.album.name }}</div>
-      <div class="status_current_label">od</div>
+      <div class="status_current_label">{{ _("by") }}</div>
       <div class="status_current_author">{% for artist in current_track.artists %}{{ artist.name }}{{ ", " if not loop.last }}{% endfor %}</div>
     {% endif %}
   </div>
   <div class="status_queue">
-    <div class="status_queue_length">Písniček na přání ve frontě: {{ queue_length }}</div>
+    <div class="status_queue_length">{{ _("Songs in the request queue:") }} {{ queue_length }}</div>
   </div>
 </div>

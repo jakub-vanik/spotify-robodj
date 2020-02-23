@@ -1,19 +1,19 @@
 <div class="search_results">
   {% if page and page > 0 %}
     <div class="search_result" onclick="load_search('{{ query }}', {{ page }} - 1, function() {})">
-      <div class="search_result_label">předchozí stránka</div>
+      <div class="search_result_label">{{ _("previous page") }}</div>
     </div>
   {% endif %}
   {% for result in results %}
     <div class="search_result" onclick="request('{{ result.id }}')">
-      <div class="search_result_button">Zahrát</div>
+      <div class="search_result_button">{{ _("Play") }}</div>
       <div class="search_result_name">{{ result.name }}</div>
       <div class="search_result_author">{% for artist in result.artists %}{{ artist.name }}{{ ", " if not loop.last }}{% endfor %}</div>
     </div>
   {% endfor %}
   {% if results | length == 10 %}
     <div class="search_result" onclick="load_search('{{ query }}', {{ page }} + 1, function() {})">
-      <div class="search_result_label">další stránka</div>
+      <div class="search_result_label">{{ _("next page") }}</div>
     </div>
   {% endif %}
 </div>

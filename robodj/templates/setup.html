@@ -8,15 +8,15 @@
   </head>
   <body>
     <div class="main">
-      <div class="setup_label">Autentizace Spotify</div>
+      <div class="setup_label">{{ _("Spotify authentication") }}</div>
       <div class="setup_section">
         <div class="setup_form">
           <form action="{{ url_for("setup.auth") }}" method="get">
-            <input class="setup_button" type="submit" value="Přihlásit" />
+            <input class="setup_button" type="submit" value="{{ _("Sign in") }}" />
           </form>
         </div>
       </div>
-      <div class="setup_label">Výběr přehrávače</div>
+      <div class="setup_label">{{ _("Player selection") }}</div>
       <div class="setup_section">
         <div class="setup_form">
           <form action="{{ url_for("setup.set_device") }}" method="post">
@@ -25,11 +25,11 @@
                 <option value="{{ device.id }}">{{ device.name }}</option>
               {% endfor %}
             </select>
-            <input class="setup_button" type="submit" value="Vybrat" />
+            <input class="setup_button" type="submit" value="{{ _("Select") }}" />
           </form>
         </div>
       </div>
-      <div class="setup_label">Výběr playlistu</div>
+      <div class="setup_label">{{ _("Playlist selection") }}</div>
       <div class="setup_section">
         <div class="setup_form">
           <form action="{{ url_for("setup.set_playlist") }}" method="post">
@@ -39,20 +39,20 @@
               {% endfor %}
             </select>
             <input class="setup_input" type="number" name="skip_tracks" value="0" />
-            <input class="setup_button" type="submit" value="Vybrat" />
+            <input class="setup_button" type="submit" value="{{ _("Select") }}" />
           </form>
         </div>
       </div>
-      <div class="setup_label">Extra</div>
+      <div class="setup_label">{{ _("Extra") }}</div>
       <div class="setup_section">
         <div class="setup_form">
           <form action="{{ url_for("setup.restart") }}" method="post">
-            <input class="setup_button" type="submit" value="Restart" />
+            <input class="setup_button" type="submit" value="{{ _("Restart") }}" />
           </form>
         </div>
         <div class="setup_form">
           <form action="{{ url_for("setup.kill") }}" method="post">
-            <input class="setup_button" type="submit" value="Kill DJ" />
+            <input class="setup_button" type="submit" value="{{ _("Kill DJ") }}" />
           </form>
         </div>
       </div>
