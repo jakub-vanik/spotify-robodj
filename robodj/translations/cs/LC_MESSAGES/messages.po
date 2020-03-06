@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-22 20:42+0000\n"
+"POT-Creation-Date: 2020-03-06 18:36+0000\n"
 "PO-Revision-Date: 2020-02-22 20:26+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
+
+#: main.py:40
+msgid "The song will be played"
+msgstr "Písnička bude zahrána"
+
+#: main.py:42
+msgid "The song is already enqueued"
+msgstr "Písnička je již ve frontě"
 
 #: templates/index.html:13
 msgid "Search for a song and play it"

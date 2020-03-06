@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import flask
+import flask_babel
 
 from . import client
 
@@ -36,6 +37,6 @@ def request():
   with client.Client() as flask.g.client:
     track_id = flask.request.args.get("track_id", "")
     if flask.g.client.request_track(track_id):
-      return "Písnička bude zahrána"
+      return flask_babel.gettext("The song will be played")
     else:
-      return "Písnička je již ve frontě"
+      return flask_babel.gettext("The song is already enqueued")
