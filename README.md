@@ -15,7 +15,7 @@ RoboDJ is designed to be run as a microservice inside a Docker container behind 
 - Build image using provided Dockerfile.
 
 ```
-docker build -t robodj .*
+docker build -t robodj .
 ```
 
 - Create container and start it in background.
