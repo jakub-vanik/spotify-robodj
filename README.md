@@ -10,7 +10,7 @@ The application consists of two components. The first one is a web application b
 ## Registering application
 Application must be registered in order to use [Spotify Web API](https://developer.spotify.com/documentation/web-api/). Visit https://developer.spotify.com/dashboard/applications, login using your Spotify account and click **CREATE A CLIENT ID** button. Choose some name and description. As a redirect URI fill your intended RoboDJ base URL extended by **/setup/auth**. For example if your RoboDJ instance run at https://mydomain.org/robodj/ use https://mydomain.org/robodj/setup/auth as redirect URI.
 
-## Deplyment
+## Deployment
 RoboDJ is designed to be run as a microservice inside a Docker container behind [NGINX](https://www.nginx.com/) reverse proxy.
 - Build image using provided Dockerfile.
 
