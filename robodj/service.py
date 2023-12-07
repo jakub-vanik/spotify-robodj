@@ -38,7 +38,7 @@ class Spotify:
     self.refresh_task = None
     self.play_next_task = None
     self.loop = asyncio.new_event_loop()
-    self.queue = asyncio.PriorityQueue(loop = self.loop)
+    self.queue = asyncio.PriorityQueue()
     self.thread = threading.Thread(target = self.entry_point)
     self.thread.start()
     asyncio.run_coroutine_threadsafe(self.start_async(), self.loop).result()

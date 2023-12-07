@@ -1,9 +1,5 @@
-FROM debian:buster
-WORKDIR /root
-RUN apt-get update && apt-get -y install python3 python3-pip
-RUN pip3 --no-cache-dir install Flask Flask-Babel rpyc aiohttp
-RUN adduser --disabled-password --gecos "User" user
-RUN mkdir /mnt/data && chmod 0777 /mnt/data
+FROM debian
+RUN apt-get update && apt-get -y install python3 python3-aiohttp python3-flask python3-flask-babel python3-rpyc
+RUN useradd -m user && mkdir /mnt/data && chmod 0777 /mnt/data
 ADD --chown=user:user robodj /home/user/robodj
-ENV FLASK_APP=/home/user/robodj STORAGE_PATH=/mnt/data/robodj
-CMD ["su", "-c", "flask run --host=0.0.0.0 & rpyc_classic.py & wait", "user"]
+CMD ["su", "-c", "FLASK_APP=/home/user/robodj flask run --host=0.0.0.0 & STORAGE_PATH=/mnt/data/robodj rpyc_classic & wait", "user"]
