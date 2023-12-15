@@ -20,21 +20,22 @@ docker build -t robodj .
 
 - Create container and start it in background.
 
-   **SCRIPT_NAME** is base path excluding domain used by flask for link generation. **CLIENT_ID** and **CLIENT_SECRET** are values obtained from application registration.
+   **CLIENT_ID** and **CLIENT_SECRET** are values obtained from application registration.
 
 ```
-docker run -d -e 'SCRIPT_NAME=/robodj/' -e 'CLIENT_ID=xxx' -e 'CLIENT_SECRET=xxx' --restart always --name robodj robodj
+docker run -d -e 'CLIENT_ID=xxx' -e 'CLIENT_SECRET=xxx' --restart always --name robodj robodj
 ```
 
 - Setup [NGINX](https://www.nginx.com/) to proxy requests to RoboDJ.
 
-   **Host** header must be forwarded. **X-Forwarded-Proto** header must be set if HTTPS scheme is used. The simplest possible configuration snippet is:
+   **X-Forwarded-Proto** header has to be set if HTTPS scheme is used. **X-Forwarded-Host** header has to be set to application server hostname. **X-Forwarded-Prefix** has to be set to base path at which is application accessed. All these headers are used by [Proxy Fix](https://werkzeug.palletsprojects.com/en/3.0.x/middleware/proxy_fix/) form Werkzeug to help Flask generate correct links. The simplest possible NGINX configuration snippet is:
 
 ```
 location /robodj/ {
     proxy_pass http://172.17.0.2:5000/;
-    proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Prefix /robodj/;
 }
 ```
 
